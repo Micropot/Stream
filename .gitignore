@@ -1,0 +1,13 @@
+venv*/
+config.yaml
+*.csv
+__pycache__
+unsloth_compiled_cache/
+temp/
+outputs/checkpoint*
+output/best_models/
+outputs/best_models/
+mlruns/
+uv.lock
+llama.cpp
+*.txt

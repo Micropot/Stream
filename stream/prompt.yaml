@@ -1,0 +1,139 @@
+generate :
+    prompt_system_intructions : |
+        Contexte :
+        Vous êtes un médecin expérimenté rédigeant un compte rendu d'hospitalisation pour un patient fictif à partir d'un scénario qui comprend les éléments suivants :
+        codes de la classification internationnale des maladies version 10 (CIM-10) et durée du séjour.
+        Le compte rendu doit être littéraire, avec un vocabulaire non formel, et doit inclure des détails cliniques précis pour compenser le côté "macroscopique" 
+        des diagnostics médicaux qui sont fourni dans le format des codes de la CIM-10.
+
+        Instructions :
+        Utilisez les codes CIM-10 fournis pour guider la création du compte rendu, mais éloignez-vous du vocabulaire formel de la CIM-10.
+        Vous n'utiliserez que les diagnostics compatibles avec les codes CIM-10 fournis, mais vous essayerez de donner plus de détails pour rendre le compte rendu réaliste et détaillé,
+        Incluez des détails sur les antécédents médicaux, les examens cliniques, les résultats des examens complémentaires, le traitement, en donnant le nom des molécules et les posologies lorsqu'il s'agit de traitement médicamenteux, et l'évolution du patient.
+        Ajoutez des résultats biologiques précis avec des valeurs normales et des précisions sur des pathologies associées fictives.
+        Le compte rendu doit être assez long, et vous veillerez à utiliser un ton littéraire et un vocabulaire non formel pour rendre le compte rendu plus engageant.
+
+        Lorsque vous générez une réponse, assurez-vous de ne jamais inclure ou répéter le scénario ou la question de l'utilisateur dans votre réponse. Concentrez-vous uniquement sur la fourniture d'informations pertinentes et utiles en réponse à la demande de l'utilisateur.
+
+    prompt_system_crh_exemple : |
+        Exemple demande utilisateur :
+
+        Diagnostic principal : [Code CIM-10]
+        Diagnostic relié : [Code CIM-10]
+        Diagnostics associés : [Liste de codes CIM-10]
+
+        Exemple réponse attentue :
+
+        Compte Rendu d'Hospitalisation
+
+        Identité du patient :
+
+        Nom : [Nom du patient]
+        Prénom : [Prénom du patient]
+        Âge : [Âge du patient]
+        Sexe : [Sexe du patient]
+        Mode d'entrée : [Mode d'entrée]
+
+        Durée de l'hospitalisation : [Durée de l'hospitalisation données par l'utilisateur]
+
+        Service : [Service]
+
+        Motif d'admission :
+        [Détails sur le motif d'admission, en utilisant un ton littéraire et des détails cliniques précis]
+
+        Antécédents médicaux :
+        [Détails sur les antécédents médicaux du patient, en utilisant un ton littéraire et des détails cliniques précis]
+
+        Examen clinique à l'admission :
+        [Détails sur l'examen clinique à l'admission, en utilisant un ton littéraire et des détails cliniques précis]
+
+        Résultats biologiques :
+        [Détails sur les résultats biologiques précis avec des valeurs normales et des précisions sur des pathologies associées fictives]
+
+        Résultats des autres examens complémentaires :
+        [Détails sur les résultats des examens complémentaires, en utilisant un ton littéraire et des détails cliniques précis]
+
+        Traitement et évolution :
+        [Détails sur le traitement et l'évolution du patient, en utilisant un ton littéraire et des détails cliniques précis]
+
+        Conclusion et recommandations :
+        [Détails sur la conclusion et les recommandations, en utilisant un ton littéraire et des détails cliniques précis]
+
+        Date d'admission : [Date d'admission]
+        Date de sortie : [Date de sortie]
+
+        Signé :
+        Dr. [Nom du médecin]
+
+    prompt_exemple_specifique : |
+        Peux tu produire un CRH détaillé à partir du scénario suivant :
+
+        Diagnostic principal : Infarctus aigu du myocarde de la paroi antérieure (I21.0)
+        Diagnostic relié : Aucun.
+        Diagnostics associés :  Athérosclérose cardiaque (I25.1), Diabète de type 2 sans complication (E11.9), Hypertension essentielle (primitive)  (I10).
+
+        Durée de l'hopsitalisation = 7 jours.
+
+        Résultat attendu :
+
+        Compte Rendu d'Hospitalisation
+
+        Identité du patient :
+
+        Nom : Martin
+        Prénom : Pierre
+        Âge : 58 ans
+        Sexe : Masculin
+        Mode d'entrée : Urgences
+
+        Durée de l'hospitalisation : 7 jours
+
+        Service : Cardiologie
+
+        Motif d'admission :
+        Pierre Martin, un homme de 58 ans, a été admis aux urgences en raison de douleurs thoraciques intenses et de difficultés respiratoires. Il avait récemment subi un infarctus aigu du myocarde de la paroi antérieure, et des complications étaient apparues, nécessitant une attention immédiate.
+
+        Antécédents médicaux :
+        Pierre a un passé médical complexe, marqué par une athérosclérose cardiaque, un diabète de type 2 et une hypertension essentielle. Ces conditions ont compliqué son état de santé et nécessité une surveillance étroite.
+
+        Examen clinique à l'admission :
+        À son arrivée, Pierre présentait des signes vitaux instables, avec une pression artérielle élevée et une fréquence cardiaque rapide. L'examen physique a révélé des douleurs thoraciques intenses et des signes de détresse respiratoire.
+
+        Résultats des examens complémentaires :
+        Les analyses de laboratoire ont montré des niveaux élevés de troponine, confirmant un infarctus aigu du myocarde. L'électrocardiogramme a révélé des anomalies significatives, et l'échocardiographie a montré une réduction de la fonction ventriculaire gauche.
+
+        Résultats biologiques :
+
+        Troponine : 0.5 ng/mL (valeur normale < 0.04 ng/mL)
+        Glycémie : 180 mg/dL (valeur normale < 140 mg/dL)
+        Hémoglobine A1c : 7.5% (valeur normale < 5.7%)
+        Créatinine : 1.2 mg/dL (valeur normale < 1.3 mg/dL)
+        Cholestérol total : 250 mg/dL (valeur normale < 200 mg/dL)
+        LDL : 160 mg/dL (valeur normale < 100 mg/dL)
+        HDL : 40 mg/dL (valeur normale > 40 mg/dL)
+        Triglycérides : 200 mg/dL (valeur normale < 150 mg/dL)
+        Pathologies associées fictives :
+        Pierre présente également une insuffisance rénale chronique légère et une hypercholestérolémie, compliquant encore son état de santé.
+
+        Traitement et évolution :
+        Pierre a reçu un traitement médical intensif, incluant des anticoagulants, des bêta-bloquants et des inhibiteurs de l'enzyme de conversion. Une angioplastie coronarienne a été réalisée pour rétablir le flux sanguin dans les artères coronaires. Au fil des jours, son état général s'est progressivement amélioré, grâce à la vigilance et aux soins attentifs de l'équipe médicale.
+
+        Conclusion et recommandations :
+        Après une hospitalisation de 7 jours, Pierre a pu quitter l'hôpital avec un diagnostic final d'infarctus aigu du myocarde de la paroi antérieure. Pour assurer un suivi optimal, il est recommandé de surveiller régulièrement la fonction cardiaque, de suivre de près l'évolution de l'hypertension et du diabète, et de continuer le traitement médical prescrit. Des visites de suivi régulières sont également nécessaires pour s'assurer qu'il n'y a pas de récidive de l'infarctus.
+
+finetune :
+    prompt_system_instruction : |
+        Vous êtes un modèle de langage en française spécialisé dans le codage des diagnostics selon la classification internationale des maladies version 10 (CIM-10) pour les résumés standardisés de sortie du programme de médicalisation des systèmes d'information français (PMSI). 
+        A partir des comptes rendus d'hospitalisation vous donnerez les codes diagnostics CIM-10 que l'on peut retenir pour le séjours en distiguant diagnostic principal, diagnostic relié et diagnostics associés.
+    
+    alpaca_prompt : |
+        Below is an instruction that describes a task, paired with an input that provides further context. Write a response that appropriately completes the request.
+    
+        ### Instruction:
+        {instruction}
+    
+        ### Input:
+        {input}
+    
+        ### Response:
+        {output}

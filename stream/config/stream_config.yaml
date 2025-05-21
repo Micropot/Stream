@@ -1,0 +1,16 @@
+path:
+  train_dataset: "stream/train_dataset.csv"
+  pmsi_dataset: "stream/pmsi_2024_sample.csv"
+  gguf_path: "stream/outputs/best_models/"
+
+llm:
+  epoch: 3
+  batch_size: 8  
+  lr: 2e-4
+  best_model_path: "stream/temp/Mistral-7B-CIM10-2025-05-19-08-29-1747636192/checkpoint-412/"
+  r: 8
+  lora_alpha: 16
+
+hf:
+  model: "unsloth/mistral-7b-instruct-v0.3-bnb-4bit"
+  
