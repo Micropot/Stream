@@ -169,7 +169,7 @@ hf:
 To generate synthetic medical records for training:
 
 ```bash
-uuv run -m stream generate --r --n 10
+uv run -m stream generate --r --n 10
 ```
 The `generate` is used to generate synthetic medical records.
 - Use `--r` for real ICD-10 codes.
